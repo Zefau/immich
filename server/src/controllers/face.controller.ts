@@ -18,6 +18,12 @@ export class FaceController {
     return this.service.getFacesById(auth, dto);
   }
 
+  @Get()
+  @Authenticated({ permission: Permission.FACE_READ })
+  searchFaces(@Auth() auth: AuthDto, @Query() dto: FaceEmbeddingDto): Promise<AssetFaceResponseDto[]> {
+    return this.service.getFacesByEmbedding(auth, dto);
+  }
+
   @Put(':id')
   @Authenticated({ permission: Permission.FACE_UPDATE })
   reassignFacesById(
