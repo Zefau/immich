@@ -138,6 +138,10 @@ export class FaceDto {
   id!: string;
 }
 
+export class FaceEmbeddingDto {
+  embedding!: string;
+}
+
 export class AssetFaceUpdateItem {
   @ValidateUUID()
   personId!: string;
